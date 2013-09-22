@@ -6,7 +6,6 @@ from django.utils.translation import ugettext_lazy as _
 
 class AbstractBase(models.Model):
     """
-
     Base abstract class. Simple shortcut to avoid repeating::
 
         class Meta:
