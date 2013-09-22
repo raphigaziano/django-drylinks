@@ -4,14 +4,14 @@
 import os
 import sys
 
-import django-link-utils
+import link_utils
 
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
-version = django-link-utils.__version__
+version = link_utils.__version__
 
 if sys.argv[-1] == 'publish':
     os.system('python setup.py sdist upload')
@@ -32,7 +32,7 @@ setup(
     author_email='r.gaziano@gail.com  ',
     url='https://github.com/raphigaziano/django-link-utils',
     packages=[
-        'django-link-utils',
+        'link_utils',
     ],
     include_package_data=True,
     install_requires=[
