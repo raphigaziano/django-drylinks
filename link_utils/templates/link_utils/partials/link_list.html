@@ -1,0 +1,3 @@
+{% for link in links %}
+   <li><span class="link-icon">{{ link.link_type.icon.url|safe }}</span> <a href="{{ link.url }}" title="{{ link.title }}">{{ link.name }}</a></li>
+{% endfor %}
