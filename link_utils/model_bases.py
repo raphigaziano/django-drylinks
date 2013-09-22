@@ -4,22 +4,8 @@ from django.utils.translation import ugettext_lazy as _
 
 ### Helper Mixins ###
 
-class AbstractBase(models.Model):
-    """
-    Base abstract class. Simple shortcut to avoid repeating::
 
-        class Meta:
-            abstract = True
-
-    throughout this file.
-
-    """
-
-    class Meta:
-        abstract = True
-
-
-class LinkManagerOptsMixin(AbstractBase):
+class LinkManagerOptsMixin(models.Model):
     """
     Common options that can be applied to a Link, LinkType or LinkCategory.
 
@@ -32,6 +18,9 @@ class LinkManagerOptsMixin(AbstractBase):
         verbose_name=_('CSS Classes'),
         blank=True,
     )
+
+    class Meta:
+        abstract = True
 
 
 class LinkOptsMixin(LinkManagerOptsMixin):
@@ -55,8 +44,11 @@ class LinkOptsMixin(LinkManagerOptsMixin):
         blank=True,
     )
 
+    class Meta:
+        abstract = True
 
-class IconMixin(AbstractBase):
+
+class IconMixin(models.Model):
     """
     Provide an icon field to subclasses.
 
@@ -70,11 +62,14 @@ class IconMixin(AbstractBase):
         blank=True, null=True,
     )
 
+    class Meta:
+        abstract = True
+
 
 ### Abstract Models ###
 
 
-class AbstractLinkType(AbstractBase):
+class AbstractLinkType(models.Model):
     """
     Regroup common attributes that will be shared by all links pointing
     to the same LinkType instance.
@@ -87,11 +82,14 @@ class AbstractLinkType(AbstractBase):
         verbose_name=_('Name'),
     )
 
+    class Meta:
+        abstract = True
+
     def __unicode__(self):
         return self.name
 
 
-class AbstractLink(AbstractBase):
+class AbstractLink(models.Model):
     """
     Abstract base class for link objects.
 
@@ -109,6 +107,9 @@ class AbstractLink(AbstractBase):
         max_length=4000,
         verbose_name=_('URL'),
     )
+
+    class Meta:
+        abstract = True
 
     def __unicode__(self):
         return self.name
