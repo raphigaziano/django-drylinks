@@ -1,4 +1,10 @@
-"""Admin classes for the link_manager app."""
+"""
+
+link_utils.admin.py
+===================
+
+Default admin classes for the django-link-utils
+"""
 from django.contrib import admin
 from django.utils.html import format_html
 
