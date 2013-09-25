@@ -10,12 +10,6 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 
-class AbstractLinkUtilsBase(models.Model):
-
-    class Meta:
-        abstract = True
-
-
 class AbstractLinkType(AbstractLinkUtilsBase):
     """
     Regroup common attributes that will be shared by all links pointing
@@ -49,7 +43,6 @@ class AbstractLink(AbstractLinkUtilsBase):
         max_length=256,
         verbose_name=_('Name'),
     )
-
     url = models.CharField(
         max_length=4000,
         verbose_name=_('URL'),
@@ -60,4 +53,5 @@ class AbstractLink(AbstractLinkUtilsBase):
 
     def __unicode__(self):
         return self.name
+
 

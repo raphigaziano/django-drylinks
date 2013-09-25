@@ -10,9 +10,11 @@ Link objects.
 """
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes import generic
 
 
-class LinkManagerOptsMixin(models.Model):
+class LinkUtilsOptsMixin(models.Model):
     """
     Common options that can be applied to a Link, LinkType or LinkCategory.
 
@@ -30,7 +32,7 @@ class LinkManagerOptsMixin(models.Model):
         abstract = True
 
 
-class LinkOptsMixin(LinkManagerOptsMixin):
+class LinkOptsMixin(LinkUtilsOptsMixin):
     """
     Common options than can be applied to an individual Link object.
 
@@ -44,7 +46,6 @@ class LinkOptsMixin(LinkManagerOptsMixin):
         default=False,
         verbose_name=_('Open in a new window / tab'),
     )
-
     title = models.CharField(
         max_length=512,
         verbose_name=_('Title'),
