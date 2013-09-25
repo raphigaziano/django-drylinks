@@ -10,7 +10,13 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 
-class AbstractLinkType(models.Model):
+class AbstractLinkUtilsBase(models.Model):
+
+    class Meta:
+        abstract = True
+
+
+class AbstractLinkType(AbstractLinkUtilsBase):
     """
     Regroup common attributes that will be shared by all links pointing
     to the same LinkType instance.
@@ -30,7 +36,7 @@ class AbstractLinkType(models.Model):
         return self.name
 
 
-class AbstractLink(models.Model):
+class AbstractLink(AbstractLinkUtilsBase):
     """
     Abstract base class for link objects.
 
