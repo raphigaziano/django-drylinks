@@ -1,7 +1,7 @@
 """
 
-link_utils.model_bases.py
-=========================
+drylinks.model_bases.py
+=======================
 
 Abstract models for django-link-utils.
 

@@ -4,14 +4,14 @@
 import os
 import sys
 
-import link_utils
+import drylinks
 
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
-version = link_utils.__version__
+version = drylinks.__version__
 
 if sys.argv[-1] == 'publish':
     os.system('python setup.py sdist upload')
@@ -24,22 +24,22 @@ readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
-    name='django-link-utils',
+    name='django-drylinks',
     version=version,
     description='Your project description goes here',
     long_description=readme + '\n\n' + history,
     author='Raphi Gaziano',
     author_email='r.gaziano@gail.com  ',
-    url='https://github.com/raphigaziano/django-link-utils',
+    url='https://github.com/raphigaziano/django-drylinks',
     packages=[
-        'link_utils',
+        'drylinks',
     ],
     include_package_data=True,
     install_requires=[
     ],
     license="BSD",
     zip_safe=False,
-    keywords='django-link-utils',
+    keywords='django-drylinks',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Framework :: Django',

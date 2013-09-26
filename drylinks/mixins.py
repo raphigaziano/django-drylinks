@@ -1,7 +1,7 @@
 """
 
-link_utils.mixins.py
-=========================
+drylinks.mixins.py
+==================
 
 Model mixins for django-link-utils.
 Use & combine those to add basic fields & functionality to your custom
@@ -65,7 +65,7 @@ class IconMixin(models.Model):
 
     """
     icon = models.ImageField(
-        upload_to='link_utils/icons',
+        upload_to='drylinks/icons',
         verbose_name=_('Icon'),
         blank=True, null=True,
     )

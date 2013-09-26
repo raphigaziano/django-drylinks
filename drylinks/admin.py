@@ -1,7 +1,7 @@
 """
 
-link_utils.admin.py
-===================
+drylinks.admin.py
+=================
 
 Default admin classes for the django-link-utils
 """
