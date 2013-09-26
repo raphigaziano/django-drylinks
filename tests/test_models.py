@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-test_django-link-utils
-------------
+test_django-drylinks
+--------------------
 
 Tests for `django-link-utils` modules module.
 """
@@ -12,7 +12,7 @@ import os
 import shutil
 import unittest
 
-from link_utils import models
+from drylinks import models
 
 
 class TestLink_utils(unittest.TestCase):
