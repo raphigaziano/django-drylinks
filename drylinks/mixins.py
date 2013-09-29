@@ -14,7 +14,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 
 
-class LinkUtilsOptsMixin(models.Model):
+class HtmlAttrsMixin(models.Model):
     """
     Common options that can be applied to a Link, LinkType or LinkCategory.
 
@@ -32,7 +32,7 @@ class LinkUtilsOptsMixin(models.Model):
         abstract = True
 
 
-class LinkOptsMixin(LinkUtilsOptsMixin):
+class LinkHtmlAttrsMixin(LinkUtilsOptsMixin):
     """
     Common options than can be applied to an individual Link object.
 
