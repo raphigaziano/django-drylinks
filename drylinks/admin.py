@@ -26,6 +26,20 @@ class LinkTypeAdmin(admin.ModelAdmin):
 
 
 class LinkAdmin(admin.ModelAdmin):
+    list_display = ['name', 'url', 'title', ]
+    fieldsets = (
+        (None, {
+            'fields': ('name', 'url'),
+        }),
+        ('Options', {
+            'fields': ('title', 'css_classes', 'target_blank'),
+            'classes': ('collapse',),
+        }),
+    )
+
+
+# TODO: inherit from LinkAdmin
+class TypedLinkAdmin(admin.ModelAdmin):
     list_display = ['link_type', 'name', 'url', 'title', ]
     fieldsets = (
         (None, {
