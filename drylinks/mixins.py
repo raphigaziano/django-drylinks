@@ -32,7 +32,7 @@ class HtmlAttrsMixin(models.Model):
         abstract = True
 
 
-class LinkHtmlAttrsMixin(LinkUtilsOptsMixin):
+class LinkHtmlAttrsMixin(HtmlAttrsMixin):
     """
     Common options than can be applied to an individual Link object.
 
