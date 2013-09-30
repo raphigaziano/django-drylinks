@@ -84,9 +84,9 @@ class InternalUrlMixin(ExternalUrlMixin): # ?? URLField ok ?
         super(InternalUrlMixin, self).__init__(*args, **kwargs)
         self.fields['url'].choices = (('foo', 'bar'))
 
-
     class Meta:
         abstract = True
+
 
 class IconMixin(models.Model):
     """
