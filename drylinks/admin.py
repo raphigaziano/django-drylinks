@@ -39,8 +39,8 @@ class LinkAdmin(admin.ModelAdmin):
 
 
 # TODO: inherit from LinkAdmin
-class TypedLinkAdmin(admin.ModelAdmin):
-    list_display = ['link_type', 'name', 'url', 'title', ]
+class TypedLinkAdmin(LinkAdmin):
+    list_display = ['link_type'] + LinkAdmin.list_display
     fieldsets = (
         (None, {
             'fields': ('link_type', 'name', 'url'),

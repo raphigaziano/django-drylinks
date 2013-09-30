@@ -56,6 +56,38 @@ class LinkHtmlAttrsMixin(HtmlAttrsMixin):
         abstract = True
 
 
+class ExternalUrlMixin(models.Model):
+    """
+    A basic mixin providing a single URLField to store external urls.
+
+    :url:       Django validated URLField.
+
+    """
+    url = models.URLField(
+        verbose_name=_('URL'),
+    )
+
+    class Meta:
+        abstract = True
+
+
+class InternalUrlMixin(ExternalUrlMixin): # ?? URLField ok ?
+    """
+    A mixin providing internal links based on a set of models.
+
+    Classes implementing this mixin need to define a QUERYSET field, which
+    must be an iterable of available models.
+
+    """
+
+    def __new__(cls, *args, **kwargs):
+        super(InternalUrlMixin, cls).__init__(cls, *args, **kwargs)
+        cls.fields['url'].choices = (('foo', 'bar'))
+
+
+    class Meta:
+        abstract = True
+
 class IconMixin(models.Model):
     """
     Provide an icon field to subclasses.

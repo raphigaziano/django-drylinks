@@ -9,6 +9,8 @@ Abstract models for django-link-utils.
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from . import mixins
+
 
 class AbstractLinkType(models.Model):
     """
@@ -18,7 +20,7 @@ class AbstractLinkType(models.Model):
     :name: The name of this link type, i.e. 'Facebook'
 
     """
-    name = models.CharField(
+    label = models.CharField(
         max_length=256,
         verbose_name=_('Name'),
     )
@@ -30,7 +32,8 @@ class AbstractLinkType(models.Model):
         return self.name
 
 
-class AbstractLink(models.Model):
+# class AbstractLink(models.Model, mixins.ExternalUrlMixin):
+class AbstractLink(models.Model, mixins.InternalUrlMixin):
     """
     Abstract base class for link objects.
 
@@ -39,13 +42,9 @@ class AbstractLink(models.Model):
     :url:       The href attribute of this link.
 
     """
-    name = models.CharField(
+    label = models.CharField(
         max_length=256,
         verbose_name=_('Name'),
-    )
-    url = models.CharField(
-        max_length=4000,
-        verbose_name=_('URL'),
     )
 
     class Meta:
