@@ -33,7 +33,7 @@ class AbstractLinkType(models.Model):
 
 
 # class AbstractLink(models.Model, mixins.ExternalUrlMixin):
-class AbstractLink(models.Model, mixins.InternalUrlMixin):
+class AbstractLink(mixins.InternalUrlMixin, models.Model):
     """
     Abstract base class for link objects.
 
