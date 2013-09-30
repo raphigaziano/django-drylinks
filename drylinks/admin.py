@@ -3,7 +3,7 @@
 drylinks.admin.py
 =================
 
-Default admin classes for the django-link-utils
+Default admin classes for the django-drylinks application.
 """
 from django.contrib import admin
 from django.utils.html import format_html

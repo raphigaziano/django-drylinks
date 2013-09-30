@@ -5,7 +5,7 @@
 test_django-drylinks
 --------------------
 
-Tests for `django-link-utils` modules module.
+Tests for `django-drylinks` models module.
 """
 
 import os

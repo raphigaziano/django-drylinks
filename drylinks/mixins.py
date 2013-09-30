@@ -3,7 +3,7 @@
 drylinks.mixins.py
 ==================
 
-Model mixins for django-link-utils.
+Model mixins for django-drylinks.
 Use & combine those to add basic fields & functionality to your custom
 Link objects.
 
@@ -63,7 +63,7 @@ class ExternalUrlMixin(models.Model):
 
     """
     url = models.CharField(
-        max_length=400,
+        max_length=4000,
         verbose_name=_('URL'),
     )
 

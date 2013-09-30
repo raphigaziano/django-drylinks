@@ -3,7 +3,7 @@
 drylinks.model_bases.py
 =======================
 
-Abstract models for django-link-utils.
+Abstract models for django-drylinks.
 
 """
 from django.db import models

@@ -2,6 +2,6 @@
 Usage
 ========
 
-To use django-link-utils in a project::
+To use django-drylinks in a project::
 
-	import django-link-utils
+	import django-drylinks
