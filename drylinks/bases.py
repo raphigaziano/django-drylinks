@@ -17,7 +17,7 @@ class AbstractLinkType(models.Model):
     Regroup common attributes that will be shared by all links pointing
     to the same LinkType instance.
 
-    :name: The name of this link type, i.e. 'Facebook'
+    :label: The name of this link type, i.e. 'Facebook'
 
     """
     label = models.CharField(
@@ -29,16 +29,16 @@ class AbstractLinkType(models.Model):
         abstract = True
 
     def __unicode__(self):
-        return self.name
+        return self.label
 
 
 # class AbstractLink(models.Model, mixins.ExternalUrlMixin):
-class AbstractLink(mixins.InternalUrlMixin, models.Model):
+class AbstractLink(models.Model, mixins.InternalUrlMixin):
     """
     Abstract base class for link objects.
 
     :link_type: The type of this link.
-    :name:      The display name for this link.
+    :label:      The display name for this link.
     :url:       The href attribute of this link.
 
     """
@@ -51,6 +51,6 @@ class AbstractLink(mixins.InternalUrlMixin, models.Model):
         abstract = True
 
     def __unicode__(self):
-        return self.name
+        return self.label
 
 
