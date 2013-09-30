@@ -71,6 +71,7 @@ class ExternalUrlMixin(models.Model):
         abstract = True
 
 
+from django.utils.functional import lazy 
 class InternalUrlMixin(ExternalUrlMixin): # ?? URLField ok ?
     """
     A mixin providing internal links based on a set of models.
@@ -82,7 +83,9 @@ class InternalUrlMixin(ExternalUrlMixin): # ?? URLField ok ?
 
     def __init__(self, *args, **kwargs):
         super(InternalUrlMixin, self).__init__(*args, **kwargs)
-        self.url.choices = (('foo', 'bar'))
+        self._meta.get_field_by_name('url')[0]._choices = lazy(
+            (('foo', 'bar'))
+        )
 
     class Meta:
         abstract = True
