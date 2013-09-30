@@ -72,7 +72,7 @@ class ExternalUrlMixin(models.Model):
 
 
 def get_choices():
-    return (('foo', 'bar'),)
+    return [('foo', 'bar')]
 from django.utils.functional import lazy 
 class InternalUrlMixin(ExternalUrlMixin): # ?? URLField ok ?
     """
@@ -86,7 +86,7 @@ class InternalUrlMixin(ExternalUrlMixin): # ?? URLField ok ?
     def __init__(self, *args, **kwargs):
         super(InternalUrlMixin, self).__init__(*args, **kwargs)
         self._meta.get_field_by_name('url')[0]._choices = lazy(
-            (('foo', 'bar'),), tuple
+            get_choice, list
         )()
 
     class Meta:
