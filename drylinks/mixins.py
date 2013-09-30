@@ -10,8 +10,7 @@ Link objects.
 """
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes import generic
+from django.utils.functional import lazy
 
 
 class HtmlAttrsMixin(models.Model):
@@ -73,8 +72,9 @@ class ExternalUrlMixin(models.Model):
 
 def get_choices():
     return [('foo', 'bar')]
-from django.utils.functional import lazy 
-class InternalUrlMixin(ExternalUrlMixin): # ?? URLField ok ?
+
+
+class InternalUrlMixin(ExternalUrlMixin):
     """
     A mixin providing internal links based on a set of models.
 
