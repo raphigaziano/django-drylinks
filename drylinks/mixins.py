@@ -62,7 +62,8 @@ class ExternalUrlMixin(models.Model):
     :url:       Django validated URLField.
 
     """
-    url = models.URLField(
+    url = models.CharField(
+        max_length=400,
         verbose_name=_('URL'),
     )
 
@@ -74,8 +75,10 @@ class InternalUrlMixin(ExternalUrlMixin):
     """
     A mixin providing internal links based on a set of models.
 
-    Classes implementing this mixin need to define a QUERYSET field, which
-    must be an iterable of available models.
+    Classes implementing this mixin need to define a ``__CHOICES__`` field,
+    which must be an iterable of available models.
+    Models listed in the ``__CHOICES__`` field can be either actual model
+    objects or "app_name.model_name" strings.
 
     """
 
@@ -85,14 +88,15 @@ class InternalUrlMixin(ExternalUrlMixin):
     def __init__(self, *args, **kwargs):
         super(InternalUrlMixin, self).__init__(*args, **kwargs)
         self._meta.get_field_by_name('url')[0]._choices = lazy(
-            self.get_choices, list
+            self._get_choices, list
         )()
 
     class Meta:
         abstract = True
 
-    @staticmethod
-    def get_choices():
+    def _get_choices(self):
+        if not getattr(self, '__CHOICES__'):
+            pass # TODO: Raise ImroperConfig
         return [('foo', 'bar')]
 
 
