@@ -70,10 +70,6 @@ class ExternalUrlMixin(models.Model):
         abstract = True
 
 
-def get_choices():
-    return [('foo', 'bar')]
-
-
 class InternalUrlMixin(ExternalUrlMixin):
     """
     A mixin providing internal links based on a set of models.
@@ -86,11 +82,15 @@ class InternalUrlMixin(ExternalUrlMixin):
     def __init__(self, *args, **kwargs):
         super(InternalUrlMixin, self).__init__(*args, **kwargs)
         self._meta.get_field_by_name('url')[0]._choices = lazy(
-            get_choices, list
+            self.get_choices, list
         )()
 
     class Meta:
         abstract = True
+
+    @staticmethod
+    def get_choices():
+        return [('foo', 'bar')]
 
 
 class IconMixin(models.Model):
