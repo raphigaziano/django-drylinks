@@ -79,6 +79,9 @@ class InternalUrlMixin(ExternalUrlMixin):
 
     """
 
+    # Lazy loading inspired by this article:
+    # http://blog.yawd.eu/2011/allow-lazy-dynamic-choices-djangos-model-fields/
+
     def __init__(self, *args, **kwargs):
         super(InternalUrlMixin, self).__init__(*args, **kwargs)
         self._meta.get_field_by_name('url')[0]._choices = lazy(
