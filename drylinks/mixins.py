@@ -86,7 +86,7 @@ class InternalUrlMixin(ExternalUrlMixin): # ?? URLField ok ?
     def __init__(self, *args, **kwargs):
         super(InternalUrlMixin, self).__init__(*args, **kwargs)
         self._meta.get_field_by_name('url')[0]._choices = lazy(
-            get_choice, list
+            get_choices, list
         )()
 
     class Meta:
