@@ -80,9 +80,9 @@ class InternalUrlMixin(ExternalUrlMixin): # ?? URLField ok ?
 
     """
 
-    def __init__(self, *args, **kwargs):
-        super(InternalUrlMixin, self).__init__(*args, **kwargs)
-        self._Meta.fields['url'].choices = (('foo', 'bar'))
+    def __new__(cls, *args, **kwargs):
+        super(InternalUrlMixin, cls).__new__(cls, *args, **kwargs)
+        cls._Meta.fields['url'].choices = (('foo', 'bar'))
 
     class Meta:
         abstract = True
