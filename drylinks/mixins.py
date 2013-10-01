@@ -72,14 +72,14 @@ class InternalUrlMixin(models.Model):
     def __init__(self, *args, **kwargs):
         super(InternalUrlMixin, self).__init__(*args, **kwargs)
         self._meta.get_field_by_name('url')[0]._choices = lazy(
-            self._get_choices, list
+            self.__get_choices, list
         )()
 
     class Meta:
         abstract = True
 
-    def _get_choices(self):
-        if not getattr(self, '__CHOICES__', False):
+    def __get_choices(self):
+        if getattr(self, '__CHOICES__', None) is None:
             pass # TODO: Raise ImroperConfig
         return [('foo', 'bar')]
 
