@@ -55,23 +55,7 @@ class LinkHtmlAttrsMixin(HtmlAttrsMixin):
         abstract = True
 
 
-class ExternalUrlMixin(models.Model):
-    """
-    A basic mixin providing a single URLField to store external urls.
-
-    :url:       Django validated URLField.
-
-    """
-    url = models.CharField(
-        max_length=4000,
-        verbose_name=_('URL'),
-    )
-
-    class Meta:
-        abstract = True
-
-
-class InternalUrlMixin(ExternalUrlMixin):
+class InternalUrlMixin(models.Model):
     """
     A mixin providing internal links based on a set of models.
 

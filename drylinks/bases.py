@@ -32,8 +32,8 @@ class AbstractLinkType(models.Model):
         return self.label
 
 
-# class AbstractLink(models.Model, mixins.ExternalUrlMixin):
-class AbstractLink(mixins.InternalUrlMixin, models.Model): # TODO: use mixin in a subclass
+# class AbstractLink(mixins.ExternalUrlMixin, models.Model):
+class AbstractLink(mixins.InternalUrlMixin, models.Model):  # TODO: use mixin in a subclass
     """
     Abstract base class for link objects.
 
@@ -45,6 +45,10 @@ class AbstractLink(mixins.InternalUrlMixin, models.Model): # TODO: use mixin in 
     label = models.CharField(
         max_length=256,
         verbose_name=_('Name'),
+    )
+    url = models.CharField(
+        max_length=4000,
+        verbose_name=_('URL'),
     )
 
     class Meta:
