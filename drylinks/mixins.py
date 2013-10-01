@@ -79,7 +79,7 @@ class InternalUrlMixin(models.Model):
         abstract = True
 
     def _get_choices(self):
-        if not getattr(self, '__CHOICES__'):
+        if not getattr(self, '__CHOICES__', False):
             pass # TODO: Raise ImroperConfig
         return [('foo', 'bar')]
 
