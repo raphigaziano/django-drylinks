@@ -81,9 +81,7 @@ class InternalUrlMixin(models.Model):
     def __get_choices(self):
         if getattr(self, '__CHOICES__', None) is None:
             pass  # TODO: Raise ImroperConfig
-        return [
-            ('foo', 'bar')
-        ]
+        return self.__CHOICES__
 
 
 class IconMixin(models.Model):
