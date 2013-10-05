@@ -44,10 +44,12 @@ class AbstractLink(models.Model):
     label = models.CharField(
         max_length=256,
         verbose_name=_('Name'),
+        blank=True,
     )
     url = models.CharField(
         max_length=4000,
         verbose_name=_('URL'),
+        blank=True,
     )
 
     class Meta:
