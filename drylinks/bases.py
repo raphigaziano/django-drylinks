@@ -32,13 +32,12 @@ class AbstractLinkType(models.Model):
         return self.label
 
 
-# class AbstractLink(mixins.ExternalUrlMixin, models.Model):
-class AbstractLink(mixins.InternalUrlMixin, models.Model):  # TODO: use mixin in a subclass
+class AbstractLink(models.Model):
     """
     Abstract base class for link objects.
 
     :link_type: The type of this link.
-    :label:      The display name for this link.
+    :label:     The display name for this link.
     :url:       The href attribute of this link.
 
     """
