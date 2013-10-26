@@ -43,21 +43,3 @@ class InternalUrlMixin(models.Model):
         if getattr(self, '__CHOICES__', None) is None:
             pass  # TODO: Raise ImroperConfig
         return self.__CHOICES__
-
-
-class IconMixin(models.Model):
-    """
-    Provide an icon field to subclasses.
-
-    :icon: An image associated to this link object. Could be used for an actual 
-        icon, a clickable image, etc...
-
-    """
-    icon = models.ImageField(
-        upload_to='drylinks/icons',
-        verbose_name=_('Icon'),
-        blank=True, null=True,
-    )
-
-    class Meta:
-        abstract = True
